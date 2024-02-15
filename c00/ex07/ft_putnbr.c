@@ -3,9 +3,14 @@
 void	ft_putnbr(int nbr)
 {
 	char	buffer[12];
+	int	sign;
 	int	i;
 
 	i = 0;
+	if(nbr < 0)
+		sign = 1;
+	else
+		sign = 0;
 	if(nbr < 0)
 	{
 		buffer[i++] = '-';
@@ -19,11 +24,8 @@ void	ft_putnbr(int nbr)
 	buffer[i] = '\0';
 	if(buffer[0] == '-')
 		write(1, &buffer[0], 1);
-	while(0 < i)
-	{
-		write(1, &buffer[i], 1);
-		i--;
-	}
+	while(sign <= i)
+		write(1, &buffer[i--], 1);
 }
 
 int	main(void)
