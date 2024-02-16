@@ -1,6 +1,6 @@
 #define NULL ((void *)0)
 
-int	ft_str_is_alpha(char *str)
+int	ft_str_is_printable(char *str)
 {
 	int	i;
 
@@ -9,7 +9,7 @@ int	ft_str_is_alpha(char *str)
 	i = 0;
 	while(str[i] != '\0')
 	{
-		if (!('a' <= str[i] && str[i] <= 'z'))
+		if (!(' ' <= str[i] && str[i] <= '~'))
 			return (0);
 		i++;
 	}
@@ -21,13 +21,13 @@ int	ft_str_is_alpha(char *str)
 int	main(void)
 {
 	int	is_lower;
-	char	string[16] = "A";
+	char	string[16] = "Hello, World\n";
 
-	is_lower = ft_str_is_alpha(string);
+	is_lower = ft_str_is_printable(string);
 	if (is_lower)
-		printf("only lower");
+		printf("only print char");
 	else
-		printf("not only lower");
+		printf("not only print char");
 	return (0);
 }
 */
