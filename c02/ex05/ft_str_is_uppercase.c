@@ -5,11 +5,11 @@ int	ft_str_is_alpha(char *str)
 	int	i;
 
 	if (str == NULL)
-		return (1);
+		return (0);
 	i = 0;
 	while(str[i] != '\0')
 	{
-		if (!( ('A' <= str[i] && str[i] <= 'Z') || ('a' <= str[i] && str[i] <= 'z') ))
+		if (!('A' <= str[i] && str[i] <= 'Z'))
 			return (0);
 		i++;
 	}
@@ -20,14 +20,14 @@ int	ft_str_is_alpha(char *str)
 #include <stdio.h>
 int	main(void)
 {
-	int	is_alpha;
+	int	is_lower;
 	char	string[16] = "";
 
-	is_alpha = ft_str_is_alpha(string);
-	if (is_alpha)
-		printf("only alpha");
+	is_lower = ft_str_is_alpha(string);
+	if (is_lower)
+		printf("only upper");
 	else
-		printf("not only alpha");
+		printf("not only upper");
 	return (0);
 }
 */

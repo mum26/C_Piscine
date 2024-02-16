@@ -1,7 +1,11 @@
+#define NULL ((void *)0)
+
 int	ft_str_is_numeric(char *str)
 {
 	int	i;
 
+	if (str == NULL)
+		return (1);
 	i = 0;
 	while(str[i] != '\0')
 	{
@@ -17,7 +21,7 @@ int	ft_str_is_numeric(char *str)
 int	main(void)
 {
 	int	is_num;
-	char	string[16] = "o123";
+	char	string[16] = "";
 
 	is_num = ft_str_is_numeric(string);
 	if (is_num)
