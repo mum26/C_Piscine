@@ -42,15 +42,11 @@ int	next_permutation(int array[], int size)
 		i--;
 
 	if (i < 0)
-	{
 		return (0);
-	}
 
 	j = size - 1;
 	while(array[j] <= array[i])
-	{
 		j--;
-	}
 	swap(&array[i], &array[j]);
 
 	reverse(array, i + 1, size - 1);
