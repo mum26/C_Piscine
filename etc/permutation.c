@@ -43,6 +43,7 @@ void	reverse(int *array, int start, int end)
 	}
 }
 
+<<<<<<< HEAD
 int	next_permutation(int *array, int size)
 {
 	int	i;
@@ -67,6 +68,11 @@ int	next_permutation(int *array, int size)
 
 void	generate_permutations(int *array, int size, int start, int end)
 {
+=======
+void	generate_permutations(int *array, int size, int start, int end)
+{
+	int	i;
+>>>>>>> 7178c8dff51cb26320885a8c6ec71cc20e15f7df
 	if (start == end)
 	{
 		print_array(array, size);
@@ -74,11 +80,21 @@ void	generate_permutations(int *array, int size, int start, int end)
 	}
 	else
 	{
+<<<<<<< HEAD
 		for (int i = start; i <= end; i++)
 		{
 			swap(&array[start], &array[i]);
 			generate_permutations(array, size, start + 1, end);
 			swap(&array[start], &array[i]);
+=======
+		i = start;
+		while (i <= end)
+		{
+			swap(&array[start], &array[i]);
+			generate_permutations(array, size, start + 1, end);
+			swap(&array[start], &array[i]); // 元に戻す
+			i++;
+>>>>>>> 7178c8dff51cb26320885a8c6ec71cc20e15f7df
 		}
 	}
 }
@@ -90,11 +106,15 @@ int	main(void)
 	int	size;
 
 	size = 4;
+<<<<<<< HEAD
 	print_array(array, size);
 	write(1, "\n", 1);
 	next_permutation(array, size);
 	print_array(array, size);
 	write(1, "\n", 1);
+=======
+	generate_permutations(array, size, 0, size - 1);
+>>>>>>> 7178c8dff51cb26320885a8c6ec71cc20e15f7df
 	return (0);
 }
 */
