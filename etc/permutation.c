@@ -6,7 +6,7 @@
 /*   By: sishige <sishige@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 20:20:29 by sishige           #+#    #+#             */
-/*   Updated: 2024/02/17 21:54:59 by sishige          ###   ########.fr       */
+/*   Updated: 2024/02/18 12:41:34 by sishige          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	print_array(int *array, int size)
 {
-	int a;
-	if(!size)
+	int	a;
+
+	if (!size)
 		return ;
 	else
 		print_array(array, --size);
@@ -25,7 +26,7 @@ void	print_array(int *array, int size)
 
 void	swap(int *a, int *b)
 {
-	int temp;
+	int	temp;
 
 	temp = *a;
 	*a = *b;
@@ -34,7 +35,7 @@ void	swap(int *a, int *b)
 
 void	reverse(int *array, int start, int end)
 {
-	while(start < end)
+	while (start < end)
 	{
 		swap(&array[start], &array[end]);
 		start++;
@@ -42,24 +43,58 @@ void	reverse(int *array, int start, int end)
 	}
 }
 
-void generate_permutations(int *array, int size, int start, int end) {
-    if (start == end) {
-	print_array(array, size);
-        write(1, "\n", 1);
-    } else {
-        for (int i = start; i <= end; i++) {
-            swap(&array[start], &array[i]);
-            generate_permutations(array, size, start + 1, end);
-            swap(&array[start], &array[i]); // 元に戻す
-        }
-    }
+int	next_permutation(int *array, int size)
+{
+	int	i;
+	int	j;
+
+	i = size - 2;
+	while (i >= 0 && array[i] >= array[i + 1])
+		i--;
+	if (i < 0)
+	{
+		return (0);
+	}
+	j = size - 1;
+	while (array[j] <= array[i])
+	{
+		j--;
+	}
+	swap(&array[i], &array[j]);
+	reverse(array, i + 1, size - 1);
+	return (1);
 }
 
+void	generate_permutations(int *array, int size, int start, int end)
+{
+	if (start == end)
+	{
+		print_array(array, size);
+		write(1, "\n", 1);
+	}
+	else
+	{
+		for (int i = start; i <= end; i++)
+		{
+			swap(&array[start], &array[i]);
+			generate_permutations(array, size, start + 1, end);
+			swap(&array[start], &array[i]);
+		}
+	}
+}
+
+/*
 int	main(void)
 {
 	int	array[] = {1, 2, 3, 4};
-	int	size = 4;
+	int	size;
 
-	generate_permutations(array, size, 0, size - 1);
+	size = 4;
+	print_array(array, size);
+	write(1, "\n", 1);
+	next_permutation(array, size);
+	print_array(array, size);
+	write(1, "\n", 1);
 	return (0);
 }
+*/
