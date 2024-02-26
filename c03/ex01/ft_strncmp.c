@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sishige <sishige@student.42tokyo.j>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/20 11:21:00 by sishige           #+#    #+#             */
+/*   Updated: 2024/02/20 11:21:03 by sishige          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
 	unsigned int	i;
@@ -14,6 +26,7 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 
 /*
 #include <stdio.h>
+
 int	main(void)
 {
 	printf("(abc, abc) = %d\n", ft_strncmp("abc", "abc", 2)); // 返り値は 0

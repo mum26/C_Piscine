@@ -1,4 +1,14 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_div_mod.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sishige <sishige@student.42tokyo.j>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/16 20:23:31 by sishige           #+#    #+#             */
+/*   Updated: 2024/02/16 20:32:06 by sishige          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 void	ft_div_mod(int a, int b, int *div, int *mod)
 {
@@ -7,6 +17,8 @@ void	ft_div_mod(int a, int b, int *div, int *mod)
 }
 
 /*
+#include <stdio.h>
+
 int	main(void)
 {
 	int	a;

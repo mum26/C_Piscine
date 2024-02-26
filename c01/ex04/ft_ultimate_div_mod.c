@@ -1,4 +1,14 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sishige <sishige@student.42tokyo.j>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/16 20:26:57 by sishige           #+#    #+#             */
+/*   Updated: 2024/02/16 20:31:17 by sishige          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 void	ft_ultimate_div_mod(int *a, int *b)
 {
@@ -10,6 +20,8 @@ void	ft_ultimate_div_mod(int *a, int *b)
 }
 
 /*
+#include <stdio.h>
+
 int	main(void)
 {
 	int	a;

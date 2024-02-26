@@ -1,4 +1,16 @@
-#define NULL ((void *)0)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sishige <sishige@student.42tokyo.j>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/19 17:12:09 by sishige           #+#    #+#             */
+/*   Updated: 2024/02/19 21:47:43 by sishige          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <unistd.h>
 
 char	*ft_strupcase(char *str)
 {
@@ -7,7 +19,7 @@ char	*ft_strupcase(char *str)
 	i = 0;
 	if (str == NULL)
 		return (0);
-	while(str[i] != '\0')
+	while (str[i] != '\0')
 	{
 		if ('a' <= str[i] && str[i] <= 'z')
 			str[i] -= 32;
@@ -20,7 +32,8 @@ char	*ft_strupcase(char *str)
 #include <stdio.h>
 int	main(void)
 {
-	char string[] = "Hello!!";
+	char	string[] = "Hello!!";
+
 	ft_strupcase(string);
 	printf("%s", string);
 	return (0);

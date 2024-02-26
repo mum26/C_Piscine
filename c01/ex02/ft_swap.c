@@ -1,6 +1,16 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sishige <sishige@student.42tokyo.j>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/16 20:22:51 by sishige           #+#    #+#             */
+/*   Updated: 2024/02/16 20:32:36 by sishige          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	ft_swap(int *a, int*b)
+void	ft_swap(int *a, int *b)
 {
 	int	temp;
 
@@ -10,6 +20,8 @@ void	ft_swap(int *a, int*b)
 }
 
 /*
+#include <stdio.h>
+
 int	main(void)
 {
 	int	a;

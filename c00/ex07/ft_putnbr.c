@@ -1,38 +1,54 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sishige <sishige@student.42tokyo.j>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/16 19:00:28 by sishige           #+#    #+#             */
+/*   Updated: 2024/02/16 19:56:56 by sishige          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
+
+void	print_num(int num)
+{
+	char	c;
+
+	if (!num)
+		return ;
+	c = (num % 10) + '0';
+	print_num(num / 10);
+	write(1, &c, 1);
+}
 
 void	ft_putnbr(int nbr)
 {
-	char	buffer[12];
-	int	sign;
-	int	i;
-
-	i = 0;
-	if(nbr < 0)
-		sign = 1;
-	else
-		sign = 0;
-	if(nbr < 0)
+	if (nbr == -2147483648)
 	{
-		buffer[i++] = '-';
-		nbr = -nbr;
+		write(1, "-2147483648", 11);
+		return ;
 	}
-	while(nbr > 0)
+	if (nbr < 0)
 	{
-		buffer[i++] = nbr % 10 + '0';
-		nbr /= 10;
+		nbr *= -1;
+		write(1, "-", 1);
 	}
-	buffer[i] = '\0';
-	if(buffer[0] == '-')
-		write(1, &buffer[0], 1);
-	while(sign <= i)
-		write(1, &buffer[i--], 1);
+	if (!nbr)
+	{
+		write(1, "0", 1);
+	}
+	print_num(nbr);
 }
 
+/*
 int	main(void)
 {
-	int num;
+	int	num;
 
-	num = 42;
+	num = 0;
 	ft_putnbr(num);
 	return (0);
 }
+*/

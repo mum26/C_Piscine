@@ -1,1 +1,1 @@
-ifconfig | awk '/ether/{print $2}'
+ifconfig | grep "ether" | awk '{print $2}'\;
