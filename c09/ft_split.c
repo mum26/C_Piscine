@@ -48,7 +48,7 @@ int	ft_strcmp(char *s1, char *s2)
 
 int	main(void)
 {
-	char	str[] = "Hello, world, !!";
+	char	str[] = "Hello,world,!!";
 	char	charset[] = " +_,.\n";
 	int	i;
 	int	j;
@@ -64,10 +64,11 @@ int	main(void)
 	{
 		j = -1;
 		while(charset[++j] != '\0')
-			if (str[i] == charset[j] && i - start > 1)
+			if (str[i] == charset[j])
 			{
-				split_cnt++;
-				start = i;
+				if (i - start > 0)
+					split_cnt++;
+				start = i + 1;
 				break ;
 			}
 	}
@@ -75,7 +76,7 @@ int	main(void)
 	// end
 
 	int cnt = split_cnt;
-	int n = 0;
+	int n = -1;
 	// strs のヒープを確保 start
 	strs = (char **)malloc(sizeof(char *) * (split_cnt + 1));
 	if (strs == NULL)
@@ -84,31 +85,36 @@ int	main(void)
 
 	// strs[n] にstr[i] ~ (i - start)文字コピーする start
 	i = 0;
+	start = 0;
 	while (0 < split_cnt)
 	{
 		j = -1;
 		while (charset[++j] != '\0')
-			if (str[i] == charset[j] && i - start > 1)
+			if (str[i] == charset[j])
 			{
-				strs[n] = (char *)malloc(sizeof(char) * (i - start));
-				if (strs[n] == NULL)
+				if (i - start > 0)
 				{
-					free (strs);
-					return (0 /*NULL*/);
+					strs[++n] = (char *)malloc(sizeof(char) * (i - start + 1));
+					if (strs[n] == NULL)
+					{
+						free (strs);
+						return (0 /*NULL*/);
+					}
+					strs[n][0] = '\0';
+					strs[n] = strncpy(strs[n], &str[start], i - start);
 				}
-				strs[n][0] = '\0';
-				strlcpy(strs[n++], &str[start], i - start);
 				split_cnt--;
-				start = i;
+				start = i + 1;
 				break ;
 			}
 		i++;
 	}
+	strs[n][i - start] = 0;
 	// end
 
 	i = 0;
 	while (i < cnt)
-		printf("%s", strs[i++]);
+		printf("%s\n", strs[i++]);
 	return (0);
 }
 
